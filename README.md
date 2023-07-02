@@ -4,6 +4,8 @@
  Steampunk Moon_Phase_III widget, written in Javascript and XML for the Yahoo 
  Widget (Konfabulator) Engine. Created for XP, Vista, Win7, 8, 10+ as well as the 
  Apple Mac.
+
+![moon](https://github.com/yereverluvinunclebert/Steampunk-Moon_Phase_III/assets/2788342/41242d72-953a-4232-9465-6d3f85b97e79)
  
 This widget is an attractive steampunk Yahoo widget for your desktop. The Steam 
 Punk Yahoo Widget for your Windows/Mac desktop, a fully working yahoo widget 
@@ -18,6 +20,7 @@ the moon widget for it to display the current moon phase. The orrery places the
 moon phase widget on the correct location for the screen and makes it appear 
 when it is required.
   
+![steampunk-moon](https://github.com/yereverluvinunclebert/Steampunk-Moon_Phase_III/assets/2788342/0b8ac531-0d35-4cc8-8d96-8e9514748256)
 
 
  The widget can be resized - Hover the cursor over the widget. Press the CTRL key 
@@ -38,7 +41,7 @@ when it is required.
  Click on the pause button and the media player sound will mute as the track 
  will be paused.
 
-![Uploading moon_cloudy.jpg…]()
+![moon_cloudy](https://github.com/yereverluvinunclebert/Steampunk-Moon_Phase_III/assets/2788342/7b7f0bfc-a0e7-4c35-9952-564b5d925c1c)
 
  The position slider allows you to select the exact part of the track to play. 
  The rod to the right end of the chassis acts as a shuffle button. The rod on 
@@ -50,8 +53,7 @@ when it is required.
  Right clicking will bring up a menu of options. One option is the player 
  settings where you can set the default player for the widget to use.You can 
  also select a variety of options for playing incuding selecting an audio CD.
- 
-![media-player-help_670](https://github.com/yereverluvinunclebert/Steampunk-MediaPlayer-Ywidget/assets/2788342/7ea3636c-225f-43a4-881f-64ee53b4995b)
+
  
  Double-clicking on the widget will cause a personalised Windows application to 
  fire up. The first time you run it there will be no assigned function and so it 
