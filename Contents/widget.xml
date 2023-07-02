@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+  <name>Moon Phase III</name>
+  <version>1.5</version>
+  <identifier>5ef5b2e2-ed20-11db-8314-0800200c9a66</identifier>
+  <image usage="dock" src="dockImages/080.png" />
+  <image usage="security" src="resources/about.png" />
+  <author name="Mark Crossley & Dean Beedell" href="http://lightquick.co.uk/steampunk-widgets.html?Itemid=264" />
+  <copyright>© 2007 Mark Crossley and 2014 Dean Beedell</copyright>
+  <description>Displays a fairly accurate depiction of the Moon</description>
+  <platform minVersion="4.5" />
+  <security>
+        <filesystem>full</filesystem>
+        <http>all</http>
+        <applescript>true</applescript>
+        <command>true</command>
+        <hotkey>false</hotkey>
+  </security>
+</metadata>

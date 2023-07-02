@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Moon Phase III
+
+	History:
+	========
+	0.0: Initial version
+	0.1: Set language and show preferences on first run
+	0.2: Images now semi transparent in unlit area of Moon
+	     Recalcs the data every time you double click
+	0.3: Added Moon Age
+		 Reformated data
+		 Changed data display to use separate window
+	0.4: Changed click schema for data from double/single/single to double/double/double
+		 New set of phase images - and removed transparency
+	0.5: Click schema now user selectable for single/double clicks
+		 Background update checks now silent (again)
+	0.6: Added Alt/Az and below horizon data
+		 Now shows at least 4 full/new dates
+		 Added image resizing
+	0.7: RA/Dec now topocentric
+		 Added topocentric distance
+		 Added image rotation for Southern Hemisphere
+		 If the data panel is left displayed, it now updates every minute.
+		 Now shows a default full Moon image on first run
+		 Fixed the age calculation
+		 Data panel now reappears where you last positioned it
+	0.71 Language tweaks
+		 Added reset default preferences menu option
+	0.8: Can now show the image in the correct orientation to the horizon, north-up, or south-up
+	0.81 Fixed quadrant error in apparent view
+	0.82 Fixed path typo in firstrun()
+	0.83 Fixed some language string errors
+		 Added handling for Sun up/down all day
+	0.9: Refixed code to handle southern hemisphere - again!
+	0.91 Added PA of Moons axis
+	0.a: Changed widget to use single Moon image with overlayed shadow mask, this allows
+		 independent rotation of the Moon and the bright limb.
+		 Fixed Age calculation to use New Moon date rather than average cycle length
+	0.b: Change age display from decimal to dd hh:mm
+	0.c: Change some language strings
+		 Moved data window positioning out of main update to show data function
+	0.d: Changed default update time to 10 minutes (from 30)
+		 Fixed Age calculation, it was taking both New and Full Moons as the start date.
+	0.e: Added shadow fading.
+
+	1.0: First public release
+	1.1: Added topo/geo positional information option
+		 Sort Moon rise/set times in time
+		 Changed update check to use the Yahoo gallery
+		 Added animated image/mask rotation
+		 Added animated image resizing
+		 New German translation from Anton Schmidt
+		 Added dynamic dock image for Yahoo version 4
+	1.2: Added user defined date/time preference and popup form
+		 Changed default update time to 5 mins (from 10)
+	1.3 Tweaked the way the user entered date is handled
+		 Added handling for TellWidget() calls to pass the date/time and preferences to the Widget
+		 Changed popup text to centered style - minimum version now 4.0
+	1.4: Changed mask and Moon disk images.
+		 Added libration calculation, displays data and show correct image
+		 Removed Widget update checks as the now done in main Yahoo program
+		 Updated Spanish translation from Mariano Belgrano
+	1.5: Fixed bug in French section of lanaguage file :(
+-->
+<widget	minimumVersion="4.5" >
+
+	<window name="mainWindow"
+		title="Moon Phase III"
+		width="314"
+		height="311">
+		<contextMenuItems>
+			<menuItem name="menuDate"
+				onSelect="InputDateForm(true);" />
+			<menuItem title="-" />
+			<menuItem name="menuResetDefaults"
+				onSelect = "resetDefaults();" />
+		</contextMenuItems>
+                <image visible="false" vOffset="73" name="ring" src="Resources/ring.png" hOffset="17">
+    			<tooltip>Click on the outer ring to move or drag the widget to a new location.</tooltip>
+    	        </image>
+
+                <image visible="false" vOffset="56" name="globetop" src="Resources/globetop.png" hOffset="147">
+    			<tooltip>Click on the outer ring to move or drag the widget to a new location.</tooltip>
+    	        </image>
+		<image name="moon"
+			src="disks\00.png"
+			hOffset="162"
+			vOffset="162"
+			HregistrationPoint = "132"
+			VregistrationPoint = "132"
+			onMouseEnter="showInfo(true);"
+			onMouseExit="showInfo(false);"/>
+		<image name="mask"
+			HregistrationPoint = "132"
+			VregistrationPoint = "132"
+			hOffset="162"
+			vOffset="162"/>
+		<image
+			src		= "Resources/supportingBar.png"
+			name		= "supportingBar"
+                        width           = "164"
+			height          = "312"
+			hOffset		= "4 "
+			vOffset		= "58 "
+			opacity		= "255"
+			visible         = "false"
+		/>
+
+		<image
+			src		= "Resources/toggle1.png"
+			name		= "toggle1"
+			hOffset		= "123 "
+			vOffset		= "59 "
+			width           = "16"
+			height          = "15"
+			opacity		= "255"
+			visible         = "false"
+		/>
+
+		<image
+			src		= "Resources/toggle2.png"
+			name		= "toggle2"
+			hOffset		= "68 "
+			vOffset		= "80 "
+			opacity		= "255"
+			width           = "16"
+			height          = "16"
+			visible         = "false"
+		/>
+
+		<image
+			src		= "Resources/toggle3.png"
+			name		= "toggle3"
+			hOffset		= "23 "
+			vOffset		= "125 "
+			opacity		= "255"
+			width           = "16"
+			height          = "16"
+			visible         = "false"
+		/>
+
+		<image
+			src		= "Resources/toggle4.png"
+			name		= "toggle4"
+			hOffset		= "0 "
+			vOffset		= "197 "
+			opacity		= "255"
+			width           = "16"
+			height          = "16"
+			visible         = "false"
+		/>
+
+		<image
+			src		= "Resources/toggle5.png"
+			name		= "toggle5"
+			hOffset		= "4 "
+			vOffset		= "251 "
+			width           = "16"
+			height          = "16"
+			opacity		= "255"
+			visible         = "false"
+		/>
+
+		<image
+			src		= "Resources/toggle6.png"
+			name		= "toggle6"
+			hOffset		= "28 "
+			vOffset		= "300 "
+			width           = "16"
+			height          = "16"
+			opacity		= "255"
+			visible         = "false"
+		/>
+
+		<image
+			src		= "Resources/toggle7.png"
+			name		= "toggle7"
+			hOffset		= "60 "
+			vOffset		= "333 "
+			opacity		= "255"
+			width           = "16"
+			height          = "16"
+			visible         = "false"
+		/>
+
+		<image
+			src		= "Resources/toggleS.png"
+			name		= "toggleS"
+			hOffset		= "135 "
+			vOffset		= "355 "
+			opacity		= "255"
+			width           = "16"
+			height          = "16"
+			visible         = "false"
+		/>
+
+		<image
+			src		= "Resources/cancel.png"
+			name		= "toggleF"
+			hOffset		= "187 "
+			vOffset		= "354 "
+			opacity		= "255"
+			width           = "33"
+			height          = "33"
+			visible         = "false"
+		/>
+
+
+		<image
+			src		= "Resources/cancel.png"
+			name		= "cancel"
+			hOffset		= "232 "
+			vOffset		= "82 "
+			opacity		= "255"
+			width           = "33"
+			height          = "33"
+			visible         = "false"
+		/>
+
+		<text name="hoverText"
+			style="text-align:center; -kon-shadow:black 2px" />
+
+                 <image
+                        src             = "resources/aboutus.png"
+			name		= "aboutimage"
+			visible         = "false"
+	        />
+
+	</window>
+
+	<window name="dataWindow"
+		width="183"
+		height="260"
+		visible="0">
+		<frame name="frame">
+
+			<image name="textBckgnd"
+				src="resources\background.png"
+				width="193"
+				height="254"
+				opacity="255" />
+
+			<textarea name="text"
+				height="210"
+				width="160"
+				size="8"
+				scrollbar="false"
+				bgColor="#060606"
+				bgOpacity="0"
+				color="#000000"
+				editable="0"
+				vOffset="17"
+				hOffset="17"
+                                font = "courier new"  />
+		</frame>
+	</window>
+
+        <action trigger="onKeyDown">
+              <![CDATA[
+                if (system.event.keyCode==116) {
+                    print("pressing "+system.event.keyCode);
+                    reloadWidget();
+                }
+               ]]>
+        </action>
+
+
+
+	<action trigger="onLoad">
+		<![CDATA[
+		//include the astro classes
+    include("Resources/datetime.js");
+    include("Resources/math.js");
+    include("Resources/moon.js");
+    include("Resources/observer.js");
+    include("Resources/planets.js");
+    include("Resources/sun.js");
+    include("Resources/util.js");
+    include("Resources/extras.js");
+    include("Resources/degrees.js");
+    
+    //include widget specific code
+    include("Resources/language.js");
+    include("Resources/tellWidget.js");
+		include("Resources/moon_phase_iii.js");
+		include("Resources/functions.js");
+		include("Resources/licence/licence.js");
+                //kick it all off...
+		start();
+		]]>
+	</action>
+
+	<action trigger="onTellWidget">
+        <![CDATA[
+		handleExternalCall();
+        ]]>
+	</action>
+
+	<action trigger="onPreferencesChanged">
+        <![CDATA[
+        	main();
+        ]]>
+	</action>
+
+	<action trigger="onWakeFromSleep">
+		<![CDATA[
+			// Force an update now
+			updateImage();
+		]]>
+	</action>
+
+	<timer name="refreshTimer"
+		interval="300"
+		ticking="true"
+		onTimerFired="print('refreshTimer fired');
+					  updateImage();" />
+
+        <preference hidden="false" description="Check this box if you don't want to see the Licence Conditions again." name="licenceHide" title="Don't Show Licence Again" defaultValue="0" type="checkbox"/>
+
+        <preference description="This setting controls the relative layer of windows in this widget. You can use it to have your widget always be on top of the other windows - for example. Note Desktop level does nothing on Windows" hidden="false" name="windowLevel" title="Window Level:" defaultValue="normal" type="popup">
+               <option>topmost</option>
+               <option>normal</option>
+               <option>below</option>
+               <option>desktop</option>
+        </preference>
+
+
+	<preference name="hLocationPercPref">
+		<title>Widget horizontal location</title>
+		<type>text</type>
+		<hidden>true</hidden>
+		<description>The widget's horizontal location stored in %.</description>
+	</preference>
+
+	<preference name="vLocationPercPref">
+		<title>Widget vertical location</title>
+		<type>text</type>
+		<hidden>true</hidden>
+		<description>The widget's vertical location stored in %.</description>
+	</preference>
+
+
+	<preference hidden="false" group="viewGrp" description="Here you can set the widget Hoffset/Left X default position." name="hoffsetpref" title="Hoffset/Left X pos" type="text"/>
+
+	<preference hidden="false" group="viewGrp" description="Here you can set the widget Yoffset/Top Y default position. Both set when you click the locking pin." name="voffsetpref" title="Yoffset/Top Y pos" type="text"/>
+
+
+	<preference name="soundPref">
+		<title>Sound Control:</title>
+		<type>popup</type>
+		<option>enable</option>
+		<optionValue>enable</optionValue>
+		<option>disable</option>
+		<optionValue>disable</optionValue>
+		<description>Enable or disable sound as you require.</description>
+		<group>earth</group>
+		<defaultValue>enable</defaultValue>
+	</preference>
+
+	<preference hidden="false" name="sizebar" group="settings" title="Size Bar:" >
+		<type>popup</type>
+		<option>enable</option>
+		<optionValue>enable</optionValue>
+		<option>disable</option>
+		<optionValue>disable</optionValue>
+		<description>Hide the size bar as you require.</description>
+		<group>viewGrp</group>
+		<defaultValue>disable</defaultValue>
+	</preference>
+
+
+	<preference name="languagePref"
+		type="popup"
+		defaultValue="EN">
+			<option>English</option>	<optionValue>EN</optionValue>
+			<option>Français</option>	<optionValue>FR</optionValue>
+			<option>Deutsch</option>	<optionValue>DE</optionValue>
+			<option>Español</option>	<optionValue>ES</optionValue>
+	</preference>
+
+	<preference name="latPref"
+		type="text"
+		defaultValue="53 20N" />
+
+	<preference name="lonPref"
+		type="text"
+		defaultValue="2 15W" />
+
+	<preference name="realTimePref"
+		type="checkbox"
+		defaultValue="1" />
+
+	<preference name="topoPref"
+		type="popup"
+		defaultValue="T">
+			<option>Topocentric</option>	<optionValue>T</optionValue>
+			<option>Geocentric</option>		<optionValue>G</optionValue>
+	</preference>
+
+	<preferenceGroup name="viewGrp"
+		icon="dockImages\060.png" />
+
+	<preferenceGroup name="fontGrp"  title="Text & Fonts"
+		icon="dockImages\font.png" />
+
+  <preferenceGroup name="development" order="8" icon="Resources/images/development-icon.png" title="Development"/>
+
+  <preference hidden="false" description="Turning on the debugging will provide extra information in the debug window. To obtain the debug window press SHIFT+CTRL simultaneously whilst right clicking on the Yahoo widget systray icon, then select debug from the drop down menu. You will need to restart the widget properly rather than doing a simple restart for debugging information to appear." name="debugflgPref" group="development" title="Debug:" defaultValue="1" type="popup">
+      <option>Debug OFF</option>
+      <optionValue>0</optionValue>
+      <option>Debug ON</option>
+      <optionValue>1</optionValue>
+  </preference>
+  
+  <preference hidden="false" description="Default command to run when the gauge receives a double-click. %SystemRoot%/system32/perfmon.exe" name="imageCmdPref" group="development" title="Double-Click command" defaultValue="%SystemRoot%/system32/taskmgr.exe" type="text"/>  
+  
+  <preference hidden="true" description="Development ONLY: Enter your editor path here along with any command line switches required to open this widget in the editor. This function only operates if the widget has been unpacked and DEBUG is ON. " name="imageEditPref" group="development" title="Default Editor:" defaultValue="" type="text"/>    
+
+	<preference name="moonSizePref"
+	        type="popup"
+		defaultValue="100"
+		group="viewGrp">
+			<option>246</option>	<optionValue>246</optionValue>
+			<option>220</option>	<optionValue>220</optionValue>
+			<option>200</option>	<optionValue>200</optionValue>
+			<option>180</option>	<optionValue>180</optionValue>
+			<option>170</option>	<optionValue>170</optionValue>
+			<option>160</option>	<optionValue>160</optionValue>
+			<option>150</option>	<optionValue>150</optionValue>
+			<option>140</option>	<optionValue>140</optionValue>
+			<option>130</option>	<optionValue>130</optionValue>
+			<option>120</option>	<optionValue>120</optionValue>
+			<option>110</option>	<optionValue>110</optionValue>
+			<option>100</option>	<optionValue>100</optionValue>
+			<option>90</option>	<optionValue>90</optionValue>
+			<option>80</option>	<optionValue>80</optionValue>
+	</preference>
+
+	<preference name="rotatePref"
+		type="popup"
+		defaultValue="0"
+		group="viewGrp">
+			<option>Apparent view</option>	<optionValue>0</optionValue>
+			<option>North up</option>		<optionValue>1</optionValue>
+			<option>South up</option>		<optionValue>2</optionValue>
+	</preference>
+
+        <preference hidden="false" description="Font that will be used in the hover text that appears when you hover the mouse pointer over the moon. By default the arial font will be used. A very nice font to use is the Chanticleer Roman NF font, size 18pt." name="hoverTextFont" group="fontGrp" title="Hover Font:" defaultValue="Arial" type="font"/>
+        <preference description="Choose the font size of the hover text above." name="hoverTextFontSizePref" group="fontGrp" title="Hover text size:" defaultValue="11" type="popup">
+            <option>9</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+            <option>13</option>
+            <option>14</option>
+            <option>16</option>
+            <option>18</option>
+            <option>20</option>
+            <option>22</option>
+            <option>24</option>
+            <option>26</option>
+            <option>28</option>
+            <option>32</option>
+            <option>36</option>
+        </preference>
+
+        <preference hidden="false" description="Enter the name of any of your installed fonts - will be used in the information pop-up box that appears when you double-click on the moon. By default will use Courier New. A very nice font to use here is the Centurion Light SF font at 11pt size." name="popupPanelFont" group="fontGrp" title="Pop-up Font:" defaultValue="Courier New" type="font"/>
+        <preference description="Choose the font size of the popup text above." name="popupPanelFontSizePref" group="fontGrp" title="Pop-up panel text size:" defaultValue="11" type="popup">
+            <option>9</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+            <option>13</option>
+            <option>14</option>
+            <option>16</option>
+            <option>18</option>
+            <option>20</option>
+            <option>22</option>
+            <option>24</option>
+            <option>26</option>
+            <option>28</option>
+            <option>32</option>
+            <option>36</option>
+        </preference>
+
+	<preference name="fadePref"
+		type="slider"
+		minLength="0"
+		maxLength="255"
+		defaultValue="220"
+		group="viewGrp">
+			<ticklabel>0%</ticklabel>
+			<ticklabel>100%</ticklabel>
+	</preference>
+
+	<preference name="showInfoPref"
+		type="checkbox"
+		group="fontGrp"
+		defaultValue="1" />
+
+	<preference name="infoStickPref"
+		type="checkbox"
+		group="fontGrp"
+		defaultValue="0" />
+
+	<preference name="utcTimePref"
+		type="checkbox"
+		group="fontGrp"
+		defaultValue="1" />
+
+	<preference name="firstRunPref"
+		type="text"
+		defaultValue="1"
+		hidden="true" />
+
+	<preference name="windowPos"
+		type="text"
+		defaultValue=""
+		hidden="true" />
+		
+        <preference hidden="true" description="For development purposes - The alternative location for the orrery Widget. Only place a folder and filename here if you have the under widget in an different folder and not the standard widget folder, eg. D:/MyWidgets/underwidget/Contents/underwidget.kon - I suggest you leave it empty." name="orreryLocationPref" title="Orrery Alternate location:" defaultValue="" type="text"/>
+
+	<about-box image="resources/aboutus.png">
+	</about-box>
+</widget>
