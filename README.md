@@ -1,5 +1,4 @@
 # Steampunk Moon_Phase_III
-
  
  Steampunk Moon_Phase_III widget, written in Javascript and XML for the Yahoo 
  Widget (Konfabulator) Engine. Created for XP, Vista, Win7, 8, 10+ as well as the 
@@ -11,7 +10,9 @@ This widget is an attractive steampunk Yahoo widget for your desktop. The Steam
 Punk Yahoo Widget for your Windows/Mac desktop, a fully working yahoo widget 
 and it can be moved around your desktop looking very steampunk indeed. 
 It displays a beautiful moon globe that you can resize at will and that will 
-display through the phases according to any date supplied
+display through the phases according to any date supplied.
+
+![steampunk-moon](https://github.com/yereverluvinunclebert/Steampunk-Moon_Phase_III/assets/2788342/0b8ac531-0d35-4cc8-8d96-8e9514748256)
   
 It is shown here on top of the steampunk orrery widget, the reason for this is 
 that the orrery is the natural home for the moon phase widget. When the orrery 
@@ -19,41 +20,15 @@ runs, it controls the moon phase widget, passing the dates it is calculating to
 the moon widget for it to display the current moon phase. The orrery places the 
 moon phase widget on the correct location for the screen and makes it appear 
 when it is required.
-  
-![steampunk-moon](https://github.com/yereverluvinunclebert/Steampunk-Moon_Phase_III/assets/2788342/0b8ac531-0d35-4cc8-8d96-8e9514748256)
-
-
- The widget can be resized - Hover the cursor over the widget. Press the CTRL key 
- and use your mousewheel up or down. The widget will resize dynamically.
- 
- The widget functionality is self-explanatory, tinker with it and you will soon 
- get to grips with it, you cannot do any harm. Think of it as a bit of steampunk 
- eye-candy with a useful function. The yahoo widget has a useful playlist. It 
- can hold up to 10,000 media files, can save and re-open playlists and saves 
- folders for later playing. You can drag/drop files or folders onto the widget 
- straight from Windows.
 
 ![moon-widget-popup](https://github.com/yereverluvinunclebert/Steampunk-Moon_Phase_III/assets/2788342/c0e66082-d283-4d10-ae03-9df4acd914a2)
 
-  Click on the slider and drag it to the left or right and the media player 
- volume will increase/decrease.There are pause, next and previous buttons.
- 
- Click on the pause button and the media player sound will mute as the track 
- will be paused.
-
-![moon_cloudy](https://github.com/yereverluvinunclebert/Steampunk-Moon_Phase_III/assets/2788342/7b7f0bfc-a0e7-4c35-9952-564b5d925c1c)
-
- The position slider allows you to select the exact part of the track to play. 
- The rod to the right end of the chassis acts as a shuffle button. The rod on 
- the other end allows you to select a specific single file for playing. To 
- select a whole folder for playing click on the speaker.
- The widget itself has a built-in help screen (above) accessible when clicking 
- on the help pin lug.
  
  Right clicking will bring up a menu of options. One option is the player 
  settings where you can set the default player for the widget to use.You can 
  also select a variety of options for playing incuding selecting an audio CD.
-
+ 
+![moon_cloudy](https://github.com/yereverluvinunclebert/Steampunk-Moon_Phase_III/assets/2788342/7b7f0bfc-a0e7-4c35-9952-564b5d925c1c)
  
  Double-clicking on the widget will cause a personalised Windows application to 
  fire up. The first time you run it there will be no assigned function and so it 
