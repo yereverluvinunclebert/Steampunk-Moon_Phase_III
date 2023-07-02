@@ -18,7 +18,7 @@ the moon widget for it to display the current moon phase. The orrery places the
 moon phase widget on the correct location for the screen and makes it appear 
 when it is required.
   
-  ![mediaplayer02_670](https://github.com/yereverluvinunclebert/Steampunk-MediaPlayer-Ywidget/assets/2788342/d9e011aa-e9c8-4bc8-8640-a9f983274d5c)
+
 
  The widget can be resized - Hover the cursor over the widget. Press the CTRL key 
  and use your mousewheel up or down. The widget will resize dynamically.
@@ -30,7 +30,7 @@ when it is required.
  folders for later playing. You can drag/drop files or folders onto the widget 
  straight from Windows.
 
- ![media-player-demo2_261](https://github.com/yereverluvinunclebert/Steampunk-MediaPlayer-Ywidget/assets/2788342/49cba403-0bfe-469d-8932-ca5b03bc478b)
+![moon-widget-popup](https://github.com/yereverluvinunclebert/Steampunk-Moon_Phase_III/assets/2788342/c0e66082-d283-4d10-ae03-9df4acd914a2)
 
   Click on the slider and drag it to the left or right and the media player 
  volume will increase/decrease.There are pause, next and previous buttons.
@@ -38,8 +38,7 @@ when it is required.
  Click on the pause button and the media player sound will mute as the track 
  will be paused.
 
- ![media-player-yahoo-display_670](https://github.com/yereverluvinunclebert/Steampunk-MediaPlayer-Ywidget/assets/2788342/5a8b0ee5-29d3-4298-8df9-0eae80f052de)
-
+![Uploading moon_cloudy.jpgâ€¦]()
 
  The position slider allows you to select the exact part of the track to play. 
  The rod to the right end of the chassis acts as a shuffle button. The rod on 
@@ -90,8 +89,8 @@ Tested on :
  
  To run this widget properly you will also need:
  
- 1. Steampunk Orrery Timekeeper Widget here; yereverluvinuncleber.deviantar…
- 2. Steampunk Underwidget here: yereverluvinuncleber.deviantar…
+ 1. Steampunk Orrery Timekeeper Widget here; yereverluvinuncleber.deviantarâ€¦
+ 2. Steampunk Underwidget here: yereverluvinuncleber.deviantarâ€¦
    	
  
  o Installation of the yahoo widget SDK runtime engine  
@@ -134,7 +133,8 @@ Tested on :
  menubar item should appear. Widgets can then be started from the menubar or by 
  double-clicking on the KON file in the usual way.
  
- 
+ ![aboutus](https://github.com/yereverluvinunclebert/Steampunk-Moon_Phase_III/assets/2788342/a39bfd44-1f95-4800-a591-e68684ab5d42)
+
  LICENCE AGREEMENTS:
  
  Copyright 2023 Dean Beedell
