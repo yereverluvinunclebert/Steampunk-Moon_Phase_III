@@ -47,7 +47,8 @@ Built using:
 
 	RJTextEd Advanced Editor  https://www.rj-texted.se/ 
 	Adobe Photoshop CS ver 8.0 (2003)  https://www.adobe.com/uk/products/photoshop/free-trial-download.html  
-
+	Yahoo Widgets SDK: engine (Konfabulator), debugger & documentation
+	
 Tested on :
 
 	ReactOS 0.4.14 32bit on virtualBox    
@@ -66,15 +67,15 @@ Tested on :
  
  To run this widget properly you will also need:
  
- 1. Steampunk Orrery Timekeeper Widget here; yereverluvinuncleber.deviantar…
- 2. Steampunk Underwidget here: yereverluvinuncleber.deviantar…
+	1. Steampunk Orrery Timekeeper Widget here; yereverluvinuncleber.deviantar…
+	2. Steampunk Underwidget here: yereverluvinuncleber.deviantar…
    	
- 
- o Installation of the yahoo widget SDK runtime engine  
+  o Installation of the yahoo widget SDK runtime engine  
  
 	Yahoo widget engine for Windows - http://g6auc.me.uk/ywidgets_sdk_setup.exe  
 	Yahoo widget engine for Mac - https://rickyromero.com/widgets/downloads/yahoo-widgets-4.5.2.dmg
- 
+	Yahoo Widgets SDK: engine (Konfabulator), debugger & documentation 
+	
  Running the widget using a javascript engine frees javascript from running only 
  within the captivity of a browser, you will now be able to run these widgets on 
  your Windows desktop as long as you have the correct widget engine installed.
